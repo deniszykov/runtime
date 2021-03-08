@@ -94,7 +94,7 @@ namespace System.IO.Pipelines
                     ThrowHelper.ThrowOperationCanceledException_FlushCanceled();
                 }
 
-                return Task.CompletedTask;
+                return TaskHelpers.CompletedTask;
             }
 
             static async Task AwaitTask(ValueTask<FlushResult> valueTask)

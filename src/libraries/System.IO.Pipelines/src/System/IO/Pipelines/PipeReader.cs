@@ -94,7 +94,7 @@ namespace System.IO.Pipelines
             }
             catch (Exception ex)
             {
-                return new ValueTask(Task.FromException(ex));
+                return new ValueTask(TaskHelpers.FromException(ex));
             }
         }
 
@@ -134,7 +134,7 @@ namespace System.IO.Pipelines
 
             if (cancellationToken.IsCancellationRequested)
             {
-                return Task.FromCanceled(cancellationToken);
+                return TaskHelpers.FromCanceled(cancellationToken);
             }
 
             return CopyToAsyncCore(destination, async (destination, memory, cancellationToken) =>
@@ -164,7 +164,7 @@ namespace System.IO.Pipelines
 
             if (cancellationToken.IsCancellationRequested)
             {
-                return Task.FromCanceled(cancellationToken);
+                return TaskHelpers.FromCanceled(cancellationToken);
             }
 
             return CopyToAsyncCore(

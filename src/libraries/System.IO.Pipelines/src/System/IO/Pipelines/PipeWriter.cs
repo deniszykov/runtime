@@ -33,7 +33,7 @@ namespace System.IO.Pipelines
             }
             catch (Exception ex)
             {
-                return new ValueTask(Task.FromException(ex));
+                return new ValueTask(TaskHelpers.FromException(ex));
             }
         }
 

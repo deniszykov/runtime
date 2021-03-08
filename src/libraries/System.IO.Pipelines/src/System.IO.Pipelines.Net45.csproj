@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net45</TargetFramework>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+		<SystemBuffersVersion>4.5.1</SystemBuffersVersion>
+		<SystemMemoryVersion>4.5.4</SystemMemoryVersion>
+		<SystemThreadingTasksExtensionsVersion>4.5.4</SystemThreadingTasksExtensionsVersion>
+		<Version>5.0.1</Version>
+		<Authors>Microsoft</Authors>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageIconUrl>Icon.png</PackageIconUrl>
+		<PackageProjectUrl>https://github.com/deniszykov/runtime</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/deniszykov/runtime</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageReleaseNotes>https://go.microsoft.com/fwlink/?LinkID=799421</PackageReleaseNotes>
+		<Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
+		<SignAssembly>true</SignAssembly>
+		<DelaySign>false</DelaySign>
+		<AssemblyOriginatorKeyFile>sign.key.snk</AssemblyOriginatorKeyFile>
+	</PropertyGroup>
+	<ItemGroup>
+	  <Compile Remove="System\IO\Pipelines\ThreadPoolScheduler.netcoreapp.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="System.Buffers" Version="$(SystemBuffersVersion)" />
+		<PackageReference Include="System.Memory" Version="$(SystemMemoryVersion)" />
+		<PackageReference Include="System.Threading.Tasks.Extensions" Version="$(SystemThreadingTasksExtensionsVersion)" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Compile Update="Resources\Strings.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>Strings.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Update="Resources\Strings.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	</ItemGroup>
+</Project>

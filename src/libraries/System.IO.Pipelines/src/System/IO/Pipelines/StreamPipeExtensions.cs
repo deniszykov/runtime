@@ -29,7 +29,7 @@ namespace System.IO.Pipelines
 
             if (cancellationToken.IsCancellationRequested)
             {
-                return Task.FromCanceled(cancellationToken);
+                return TaskHelpers.FromCanceled(cancellationToken);
             }
 
             return destination.CopyFromAsync(source, cancellationToken);
